@@ -21,7 +21,7 @@ class GogoanimeDownloader():
         ep_links.reverse()
         return ep_links
 
-    def get_raw_video_link(self, ep_link):
+    def get_raw_video_link_mp4(self, ep_link):
         self.driver.get(ep_link)
         WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, mp4upload_link_xpath)))
         mp4_btn = self.driver.find_element_by_xpath(mp4upload_link_xpath)
@@ -34,13 +34,7 @@ class GogoanimeDownloader():
     
     def dl_videos(self, ep_links):
         for ep_link in ep_links:
-            self.driver.get(self.get_raw_video_link(ep_link))
+            self.driver.get(self.get_raw_video_link_mp4(ep_link))
 
     def stop(self):
         self.driver.quit()
-
-if __name__ == "__main__":
-    downloader = GogoanimeDownloader()
-    links = downloader.get_ep_links("https://www2.gogoanime.video/category/rezero-kara-hajimeru-isekai-seikatsu-shin-henshuu-ban")
-    print(downloader.get_raw_video_link(links[11]))
-    downloader.stop()
