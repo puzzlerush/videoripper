@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('DJANGO_SCRET_KEY', 'qc@7vu53lqe21us913)9p&(bfhsg8g1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['videoripper.herokuapp.com']
+ALLOWED_HOSTS = ['videoripper.herokuapp.com', '127.0.0.1']
 
 
 # Application definition

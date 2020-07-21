@@ -3,13 +3,21 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
+CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
+
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument('--disable-gpu')
+chrome_options.add_argument('--no-sandbox')
+chrome_options.binary_location = GOOGLE_CHROME_PATH
+
 ep_links_xpath = "//a[.//span[contains(text(), 'EP')]]"
 mp4upload_link_xpath = "//li[@class='mp4']//a"
 mp4upload_download_xpath = "//button[@data-plyr='download']"
 
 class GogoanimeDownloader():
     def __init__(self):
-        self.driver = webdriver.Chrome('chromedriver.exe')
+        self.driver = webdriver.Chrome(execution_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)
         
     def get_ep_links(self, url):
         self.driver.get(url)
