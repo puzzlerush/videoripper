@@ -1,10 +1,12 @@
+import os
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
-CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
+GOOGLE_CHROME_PATH = os.environ.get('GOOGLE_CHROME_BIN')
+CHROMEDRIVER_PATH = os.environ.get('CHROMEDRIVER_PATH')
 
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument('--disable-gpu')
