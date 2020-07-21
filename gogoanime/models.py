@@ -28,7 +28,7 @@ class Host(models.Model):
 class Link(models.Model):
 	"""Model representing a URL of a submitted video"""
 
-	video_url = models.URLField('Video URL', max_length=300, help_text='Enter video URL')
+	video_url = models.URLField('URL', max_length=300)
 	site = models.ForeignKey('Site', on_delete=models.SET_NULL, null=True)
 	host = models.ForeignKey('Host', on_delete=models.SET_NULL, null=True)
 	time_requested = models.DateTimeField(auto_now_add=True)

@@ -20,7 +20,8 @@ def index(request):
 			new_link = Link(video_url=data['video_url'], site=data['site'], host=data['host'])
 			new_link.save()
 			downloader = GogoanimeDownloader()
-			raw_video_link = downloader.get_raw_video_link_mp4(new_link.video_url) 
+			if new_link.site.name == 'gogoanime' and new_link.host.name == 'mp4upload':
+				raw_video_link = downloader.get_raw_video_link_mp4(new_link.video_url) 
 			downloader.stop()
 			return HttpResponseRedirect(reverse('watch_video', args=[urllib.parse.quote(raw_video_link, safe='')]))
 	else:
