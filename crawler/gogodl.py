@@ -17,7 +17,7 @@ mp4upload_download_xpath = "//button[@data-plyr='download']"
 
 class GogoanimeDownloader():
     def __init__(self):
-        self.driver = webdriver.Chrome(execution_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)
+        self.driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)
         
     def get_ep_links(self, url):
         self.driver.get(url)
