@@ -21,10 +21,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'qc@7vu53lqe21us913)9p&(bfhsg8g1x-4lx3ciwfjb6!$fm(('
-SECRET_KEY = os.environ.get('DJANGO_SCRET_KEY', 'qc@7vu53lqe21us913)9p&(bfhsg8g1x-4lx3ciwfjb6!$fm((')
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+DEBUG = os.environ.get('DJANGO_DEBUG') != 'False'
 
 ALLOWED_HOSTS = ['videoripper.herokuapp.com', '127.0.0.1']
 
