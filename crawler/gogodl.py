@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-GOOGLE_CHROME_PATH = os.environ.get('GOOGLE_CHROME_BIN')
+GOOGLE_CHROME_PATH = os.environ.get('GOOGLE_CHROME_SHIM')
 CHROMEDRIVER_PATH = os.environ.get('CHROMEDRIVER_PATH')
 
 chrome_options = webdriver.ChromeOptions()
