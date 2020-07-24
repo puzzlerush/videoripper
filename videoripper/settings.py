@@ -27,12 +27,13 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 DEBUG_ENVIRONMENT_VAR = os.environ.get('DJANGO_DEBUG')
 
-if DEBUG_ENVIRONMENT_VAR == 'True':
-    DEBUG = True
-elif DEBUG_ENVIRONMENT_VAR == 'False':
-    DEBUG = False
-else:
-    DEBUG = False
+# if DEBUG_ENVIRONMENT_VAR == 'True':
+#     DEBUG = True
+# elif DEBUG_ENVIRONMENT_VAR == 'False':
+#     DEBUG = False
+# else:
+#     DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['videoripper.herokuapp.com', '127.0.0.1']
 
