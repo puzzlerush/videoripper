@@ -18,6 +18,7 @@ class Host(models.Model):
 	
 	HOST_CHOICES = (
 		('mp4upload', 'mp4upload'),
+		('vidstreaming', 'vidstreaming'),
 	)
 
 	name = models.CharField(max_length=30, choices=HOST_CHOICES, default='mp4upload')
