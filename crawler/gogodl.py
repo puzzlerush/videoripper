@@ -1,3 +1,5 @@
+import time
+import requests
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -46,10 +48,25 @@ class GogoanimeDownloader():
         WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, vidstreaming_play_xpath)))
         body = self.driver.find_element_by_xpath("//body")
         body.click()
+        self.driver.switch_to.window(self.driver.window_handles[0])
         play_btn = self.driver.find_element_by_xpath(vidstreaming_play_xpath)
         play_btn.click()
         video = self.driver.find_element_by_xpath(vidstreaming_video_xpath)
-        return video.get_attribute("src")
+        source = video.get_attribute("src")
+        response = requests.head(source)
+        headers = response.headers
+        if ".mp4" in headers["Location"]:
+            return headers["Location"]
+        for i in range(10):
+            if ".mp4" in source:
+                return source
+            try:
+                video = self.driver.find_element_by_xpath(vidstreaming_video_xpath)
+                source = video.get_attribute("src")
+            except:
+                pass
+            time.sleep(1)
+        return source
         
     def dl_videos(self, ep_links):
         for ep_link in ep_links:
