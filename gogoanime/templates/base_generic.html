@@ -9,11 +9,11 @@
   {% load static %}
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  {% block scripts %}{% endblock %}
 </head>
 <body>
-  <div class="container">
+  <div class="wrapper">
     {% block content %}{% endblock %}
   </div>
+  {% block scripts %}{% endblock %}
 </body>
 </html>
